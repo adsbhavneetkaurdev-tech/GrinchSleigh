@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Host · Grump Sleigh</title>
+  <link rel="stylesheet" href="css/host.css">
+</head>
+<body>
+  <section id="login" hidden>
+    <h1>Grump Sleigh host</h1>
+    <form id="login-form">
+      <label for="key">Admin password</label>
+      <input id="key" type="password" autocomplete="current-password" required>
+      <button>Open host panel</button>
+      <p id="login-error" role="alert"></p>
+    </form>
+  </section>
+
+  <main id="panel" hidden>
+    <header>
+      <h1>Grump Sleigh host</h1>
+      <div class="stats">
+        <div><strong id="s-count">0</strong><span>in the sack</span></div>
+        <div><strong id="s-queue">0</strong><span>waiting review</span></div>
+        <div><strong id="s-phase">collecting</strong><span>phase</span></div>
+      </div>
+    </header>
+
+    <section class="controls">
+      <button data-action="toggleQr">QR (Q)</button>
+      <button data-action="toggleText">Text (T)</button>
+      <button data-action="finale" class="go">Launch finale (L)</button>
+      <button data-action="reset" class="danger">Reset round (R)</button>
+      <label class="switch"><input type="checkbox" id="hold-all"> Hold every grudge for review</label>
+    </section>
+    <p class="links">Guest link: <a id="guest-url" target="_blank" rel="noopener"></a> · <a id="display-url" target="_blank" rel="noopener">Open big screen</a></p>
+
+    <section>
+      <div class="section-head">
+        <h2>Review queue</h2>
+        <button id="clear-queue" class="small">Reject all</button>
+      </div>
+      <p class="help">Flagged for names, rude words or contact details. Edit the text if you like, then approve or reject. Nothing here is shown on screen until you approve it.</p>
+      <ul id="queue"></ul>
+      <p id="queue-empty" class="empty">Nothing to review. The Grumpster is pleased. Well, less cross.</p>
+    </section>
+
+    <section>
+      <h2>Recently in the sack</h2>
+      <ul id="recent"></ul>
+    </section>
+  </main>
+  <div id="toast" role="status"></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/host.js"></script>
+</body>
+</html>

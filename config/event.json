@@ -1,0 +1,77 @@
+{
+  "eventName": "Holiday Party 2026",
+  "port": 3000,
+  "publicUrl": "",
+  "hostKey": "change-me",
+  "trustProxy": false,
+
+  "display": {
+    "title": "The Grump Sleigh",
+    "subtitle": "Scan, have a grumble, and let the Grumpster haul it all away!",
+    "qrCaption": "Scan to toss a grudge in the sack",
+    "counterLabel": "Grudges collected",
+    "finaleCounterLabel": "Grudges hauled away",
+    "finaleMessage": "All grudges gone. Merry Christmas!",
+    "finaleSubMessage": "The Grumpster has taken the lot. Enjoy the party!",
+    "showQrOnStart": true,
+    "showTextOnStart": true,
+    "showControlsHint": true,
+    "noteDisplayMs": 3200,
+    "coalChance": 0.18,
+    "sackFullAt": 60,
+    "moodThresholds": {
+      "delighted": 6,
+      "straining": 25,
+      "sitting": 45
+    }
+  },
+
+  "speech": {
+    "grumpy": ["Hmph!", "Is that all?", "More!", "I haven't got all night.", "Pathetic. Bigger grudges!"],
+    "delighted": ["Ooh, a juicy one!", "More! MORE!", "Hehehe.", "Lovely and bitter.", "Keep 'em coming!"],
+    "straining": ["Oof!", "It's getting heavy...", "Nngh!", "Who packed a printer in here?!", "Still... more!"],
+    "sitting": ["Stay DOWN, you sack!", "Hmph. Comfy.", "Room for one more...", "Is that all?"],
+    "arrival": ["Hmph!", "Mine!", "Ooh.", "Next!", "More!"],
+    "finaleTie": "Right. That's the lot!",
+    "finaleGo": "Hyah! Giddy up, you lumps!",
+    "reset": "Hmph. Back again?",
+    "goats": ["Meh.", "Mehhh.", "No.", "Bleh."]
+  },
+
+  "form": {
+    "heading": "Got a grudge?",
+    "intro": "Give it to the Grumpster. He'll haul it away before Christmas.",
+    "note": "Keep it light. No names, please!",
+    "privacy": "Anonymous. We don't collect names or emails.",
+    "placeholder": "e.g. The printer that jams every Monday",
+    "button": "Toss it in the sack",
+    "thanks": "Into the sack it goes! The Grumpster says: Hmph. More!",
+    "held": "Hmph. That one needs a quick check by the host first. Tip: no names or rude words!",
+    "closed": "The sleigh has already left! The Grumpster will be back for the next round.",
+    "another": "Toss another"
+  },
+
+  "limits": {
+    "maxLength": 80,
+    "minLength": 3,
+    "perMinute": 4
+  },
+
+  "moderation": {
+    "enabled": true,
+    "blockNames": true,
+    "blockProfanity": true,
+    "blockContactInfo": true,
+    "holdAllForReview": false,
+    "extraBlockedNames": [],
+    "extraBlockedWords": [],
+    "allowedWords": ["santa", "rudolph", "frosty", "grumbles", "noel", "carol", "holly", "ivy", "eve"]
+  },
+
+  "demo": {
+    "minGapMs": 1800,
+    "maxGapMs": 3600,
+    "autoFinaleAt": 50,
+    "autoResetAfterMs": 14000
+  }
+}

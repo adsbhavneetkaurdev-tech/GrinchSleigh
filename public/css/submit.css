@@ -1,0 +1,47 @@
+:root { --bg: #000; --card: #12131a; --ink: #f4f1e8; --muted: #a9b3c4; --purple: #d62e3a; --purple-2: #a51f2b; --green: #2e8b4f; --sage: #9fd3a8; --candy: repeating-linear-gradient(-45deg, #d62e3a 0 12px, #fff6ee 12px 24px); --gold: #ffcf6b; --paper: #fbf7ea; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--ink); font: 500 17px/1.45 'Fredoka', system-ui, sans-serif; }
+body { display: flex; justify-content: center; padding: 16px 16px calc(24px + env(safe-area-inset-bottom)); }
+.card { width: 100%; max-width: 460px; text-align: center; }
+.mascot { width: 210px; height: auto; display: block; margin: 8px auto 0; }
+h1 { font: 700 46px/1.05 'Mountains of Christmas', 'Fredoka', cursive; color: #ff4655; margin: 4px 0 6px; -webkit-text-stroke: 1px #fff3ea; paint-order: stroke fill; text-shadow: 0 3px 0 #8f1b25; }
+.intro { color: var(--sage); margin: 0 0 18px; }
+.paper { background: var(--paper) repeating-linear-gradient(var(--paper) 0 35px, #b9cde8 35px 37px); border-radius: 6px; padding: 6px 14px 6px 40px; position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,.6); }
+.paper::before { content: ''; position: absolute; left: 28px; top: 0; bottom: 0; width: 2px; background: #f19a9a; }
+textarea { width: 100%; border: 0; background: transparent; resize: none; font: 26px/37px 'Patrick Hand', 'Comic Sans MS', cursive; color: #222; outline: none; padding: 0; min-height: 111px; }
+textarea::placeholder { color: #9a9486; }
+.meta { display: flex; justify-content: space-between; gap: 12px; margin: 10px 2px 16px; font-size: 15px; text-align: left; }
+.rule { color: var(--gold); font-weight: 700; }
+#count { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+#count.near { color: var(--gold); }
+button { width: 100%; min-height: 54px; border: 0; border-radius: 14px; background: linear-gradient(var(--purple), var(--purple-2)); color: #fff;
+  font: 700 20px 'Fredoka', system-ui, sans-serif; cursor: pointer; box-shadow: 0 4px 0 #7d1620; }
+button:active { transform: translateY(2px); box-shadow: 0 2px 0 #7d1620; }
+button:disabled { opacity: .6; }
+button:focus-visible, textarea:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.privacy { color: var(--muted); font-size: 14px; margin: 12px 0 0; }
+#error { color: #ff9a8a; margin: 10px 0 0; }
+#result { padding: 10px 0; }
+#result p { font-size: 20px; margin: 18px 0 22px; }
+#result.held p { color: var(--gold); }
+.ball { width: 90px; height: 90px; margin: 20px auto 0; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #e6dfcf 60%, #b9b09c);
+  clip-path: polygon(50% 0, 80% 8%, 100% 38%, 92% 74%, 66% 100%, 30% 95%, 4% 72%, 0 36%, 20% 8%); animation: toss 1s cubic-bezier(.3, 0, .6, 1) both; }
+#result.held .ball { animation: none; opacity: .5; }
+@keyframes toss { 0% { transform: scale(1.6) rotate(0); opacity: 0; } 30% { transform: scale(1) rotate(90deg); opacity: 1; } 100% { transform: translate(120px, -60px) scale(.3) rotate(400deg); opacity: 0; } }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* mascot: show only the grumpy face, with a little impatient foot tap */
+.mascot .m, .mascot .g-sweat, .mascot .g-arm { display: none; }
+.mascot .m-grumpy { display: inline; }
+.mascot * { transform-box: view-box; }
+.mascot .g-tapper { transform-origin: 22px -4px; animation: tap .36s ease-in-out infinite alternate; animation-delay: 1s; }
+.mascot .g-brow-l { transform-origin: -32px -186px; transform: rotate(8deg) translateY(4px); }
+.mascot .g-brow-r { transform-origin: 32px -186px; transform: rotate(-8deg) translateY(4px); }
+@keyframes tap { to { transform: rotate(-14deg); } }
+@media (prefers-reduced-motion: reduce) { .mascot .g-tapper, .ball { animation: none; } }
+
+/* candy-cane ribbon at the top of the page and green paper border */
+body::before { content: ''; position: fixed; left: 0; right: 0; top: 0; height: 10px; background: var(--candy); z-index: 5; }
+body { padding-top: 26px; }
+.paper { outline: 4px solid var(--green); outline-offset: 4px; }
+.mascot { -webkit-mask-image: linear-gradient(#000 78%, transparent 97%); mask-image: linear-gradient(#000 78%, transparent 97%); }

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grump Sleigh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Mountains+of+Christmas:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/display.css">
+</head>
+<body>
+  <div id="stage">
+    <svg id="sky" viewBox="0 0 1920 1080" aria-hidden="true"></svg>
+    <canvas id="snow" width="1920" height="1080"></canvas>
+    <svg id="scene" viewBox="0 0 1920 1080" aria-hidden="true"></svg>
+    <canvas id="fx" width="1920" height="1080"></canvas>
+
+    <div id="warm" aria-hidden="true">
+      <svg id="lights" viewBox="0 0 1920 260"></svg>
+    </div>
+
+    <div id="notes"></div>
+    <div id="bubbles"></div>
+
+    <div id="hud">
+      <header id="title" class="text-layer">
+        <h1 data-cfg="display.title">The Grump Sleigh</h1>
+        <p data-cfg="display.subtitle">Scan, have a grumble, and let the Grumpster haul it all away!</p>
+      </header>
+      <div id="counter" class="text-layer">
+        <span id="counter-label" data-cfg="display.counterLabel">Grudges collected</span><span class="colon">:</span>
+        <strong id="counter-num">0</strong>
+      </div>
+      <aside id="qr">
+        <div class="qr-card">
+          <img id="qr-img" src="/api/qr.svg" alt="QR code to submit a grudge">
+          <div id="qr-missing">Start the server to show the QR code</div>
+        </div>
+        <p data-cfg="display.qrCaption">Scan to toss a grudge in the sack</p>
+        <small id="qr-url"></small>
+      </aside>
+      <div id="finale-msg">
+        <h2 data-cfg="display.finaleMessage">All grudges gone. Merry Christmas!</h2>
+        <p data-cfg="display.finaleSubMessage"></p>
+      </div>
+      <div id="hint" class="text-layer"><b>Q</b> QR · <b>T</b> text · <b>F</b> fullscreen · <b>L</b> launch finale · <b>R</b> reset · <b>H</b> help</div>
+      <div id="toast" role="status"></div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js" onerror="window.__noSocket=true"></script>
+  <script src="js/art.js"></script>
+  <script src="js/demo-grudges.js"></script>
+  <script src="js/display.js"></script>
+</body>
+</html>
